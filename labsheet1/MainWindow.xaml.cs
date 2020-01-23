@@ -26,7 +26,6 @@ namespace labsheet1
             InitializeComponent();
 
 
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -79,6 +78,9 @@ namespace labsheet1
 
             RefreshList();
             lbxBand.ItemsSource = Bands;
+
+            cbxGenre.ItemsSource = new string[] {"All Genre", "Indie Band","Pop Band", "Rock Band"  };
+            
         }
         private void RefreshList()
         {

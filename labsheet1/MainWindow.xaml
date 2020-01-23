@@ -15,7 +15,7 @@
         <Label Content="Band information" HorizontalAlignment="Left" Margin="374,32,0,0" VerticalAlignment="Top" Width="108" Height="26"/>
         <Button x:Name="BTNSave" Content="Save" HorizontalAlignment="Left" Margin="399,320,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
         <Label Content="Albums" HorizontalAlignment="Left" Margin="374,161,0,0" VerticalAlignment="Top" Height="26" Width="50"/>
-        <ComboBox HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="58,63,0,0" VerticalAlignment="Top" Height="26" Width="38"/>
         <ListBox x:Name="lbxBand" HorizontalAlignment="Left" Height="229" Margin="58,111,0,0" VerticalAlignment="Top" Width="241"/>
         <TextBlock HorizontalAlignment="Left" Margin="374,76,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="58" Width="122"/>

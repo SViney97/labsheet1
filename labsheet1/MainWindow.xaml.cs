@@ -21,6 +21,7 @@ namespace labsheet1
     public partial class MainWindow : Window
     {
         List<Band> Bands= new List<Band>();
+        List<Band> filteredBands = new List<Band>();
         public MainWindow()
         {
             InitializeComponent();
@@ -80,6 +81,7 @@ namespace labsheet1
             lbxBand.ItemsSource = Bands;
 
             cbxGenre.ItemsSource = new string[] {"All Genre", "Indie Band","Pop Band", "Rock Band"  };
+
             
         }
         private void RefreshList()

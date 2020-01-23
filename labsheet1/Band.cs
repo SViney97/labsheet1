@@ -14,7 +14,7 @@ namespace labsheet1
 
         public string Members { get; set; }
 
-
+        
         public Band()
         {
 
@@ -51,17 +51,27 @@ namespace labsheet1
 
     public class RockBand : Band
     {
-
+       
+        public override string ToString()
+        {
+            return (this.BandName + "- rock");
+        }
     }
 
     public class PopBand : Band
     {
-
+        public override string ToString()
+        {
+            return (this.BandName + "- Pop");
+        }
     }
 
     public class IndieBand : Band
     {
-
+        public override string ToString()
+        {
+            return (this.BandName + "-Indie");
+        }
     }
 
     public class album

@@ -158,6 +158,7 @@ namespace labsheet1
             {
                 foreach (Band filtered in filteredBands)
                 {
+
                     filteredBands[counter] = filtered;
                     counter++;
                 }

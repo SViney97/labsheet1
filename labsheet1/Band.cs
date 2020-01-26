@@ -14,6 +14,7 @@ namespace labsheet1
 
         public string Members { get; set; }
 
+        public album[] Albums { get; set; }
         
         public Band()
         {
@@ -51,7 +52,10 @@ namespace labsheet1
 
     public class RockBand : Band
     {
-       
+        public RockBand()
+            {
+
+            }
         public override string ToString()
         {
             return (this.BandName + "- rock");
@@ -60,6 +64,9 @@ namespace labsheet1
 
     public class PopBand : Band
     {
+        public PopBand()
+        {
+        }
         public override string ToString()
         {
             return (this.BandName + "- Pop");
@@ -68,6 +75,9 @@ namespace labsheet1
 
     public class IndieBand : Band
     {
+        public IndieBand()
+        {
+        }
         public override string ToString()
         {
             return (this.BandName + "-Indie");
@@ -76,6 +86,30 @@ namespace labsheet1
 
     public class album
     {
+        public string AlbumName { get; set; }
 
+        public DateTime Released { get; set; }
+
+        public decimal Sales { get; set; }
+
+       
+
+        Random rng = new Random();
+
+      
+        public album()
+        {
+
+        }
+        public album(string albumname, DateTime released, decimal sales)
+        {
+            AlbumName = albumname;
+            Released = released;
+            Sales = sales;
+        }
+        public override string ToString()
+        {
+            return (this.AlbumName + "-" + (DateTime.Now.Year - Released.Year) +"-€" + this.Sales);
+        }
     }
 }

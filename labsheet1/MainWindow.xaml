@@ -13,11 +13,11 @@
         </Grid.ColumnDefinitions>
         <Label Content="Bands" HorizontalAlignment="Left" Margin="58,32,0,0" VerticalAlignment="Top" Height="26" Width="56" FontSize="15" FontWeight="Bold"/>
         <Label Content="Band information" HorizontalAlignment="Left" Margin="374,32,0,0" VerticalAlignment="Top" Width="145" Height="26" FontSize="15" FontWeight="Bold"/>
-        <Button x:Name="btnSAVE" Content="Save" HorizontalAlignment="Left" Margin="399,320,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
+        <Button x:Name="btnSAVE" Content="Save" HorizontalAlignment="Left" Margin="399,320,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnSAVE_Click"/>
         <Label Content="Albums" HorizontalAlignment="Left" Margin="374,161,0,0" VerticalAlignment="Top" Height="26" Width="71" FontSize="15" FontWeight="Bold"/>
-        <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="105,67,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
+        <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="105,67,0,0" VerticalAlignment="Top" Width="120" Height="22" SelectionChanged="CbxGenre_SelectionChanged"/>
         <Label Content="Genre" HorizontalAlignment="Left" Margin="58,63,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
-        <ListBox x:Name="lbxBand" HorizontalAlignment="Left" Height="229" Margin="58,111,0,0" VerticalAlignment="Top" Width="241"/>
+        <ListBox x:Name="lbxBand" HorizontalAlignment="Left" Height="229" Margin="58,111,0,0" VerticalAlignment="Top" Width="241" SelectionChanged="LbxBand_SelectionChanged"/>
         <TextBlock x:Name="tbkInformation" HorizontalAlignment="Left" Margin="374,76,0,0" TextWrapping="Wrap" Text="." VerticalAlignment="Top" Height="80" Width="145"/>
         <ListBox x:Name="lbxAlbums" HorizontalAlignment="Left" Height="100" Margin="374,192,0,0" VerticalAlignment="Top" Width="145"/>
 

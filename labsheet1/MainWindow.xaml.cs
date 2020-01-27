@@ -22,7 +22,7 @@ namespace labsheet1
     {
         List<Band> Bands= new List<Band>();
         List<album> Albums = new List<album>();
-        List<Band> filteredBands = new List<Band>();
+        //List<Band> filteredBands = new List<Band>();
         public MainWindow()
         {
             InitializeComponent();
@@ -126,7 +126,7 @@ namespace labsheet1
 
             RefreshList();
             lbxBand.ItemsSource = Bands;
-            cbxGenre.ItemsSource = new string[] {"All Genre", "Indie","Pop", "Rock"};
+            cbxGenre.ItemsSource = new string[] {"All", "Indie","Pop","Rock"};
 
 
             
@@ -139,8 +139,6 @@ namespace labsheet1
             lbxAlbums.ItemsSource = null;
             lbxAlbums.ItemsSource = Albums;
 
-            //sorts the bands in bands listbox by band name 
-            //display in order
             Bands.Sort();
  
             
@@ -148,20 +146,31 @@ namespace labsheet1
 
         private void CbxGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //dont undertand how to filter the bands from a combobox.
+
+            //string[] filter = Bands.ToArray();
             Band[] filteredBands = new Band[2];
             int counter = 0;
             if (cbxGenre.SelectedItem != null)
             {
-
+                lbxBand.ItemsSource = Bands;
+            }
+            else if(cbxGenre.SelectedItem == "All")
+            {
+                Bands.ToArray();
+                lbxBand.ItemsSource = Bands;
             }
             else if (cbxGenre.SelectedItem == "Indie")
             {
-                foreach (Band filtered in filteredBands)
+                
+                foreach (Band filtered in Bands)
                 {
-
+                    Bands.ToArray();
+                    
                     filteredBands[counter] = filtered;
                     counter++;
                 }
+                
             }
             lbxBand.ItemsSource = filteredBands;
 
@@ -192,6 +201,7 @@ namespace labsheet1
         private void btnSAVE_Click(object sender, RoutedEventArgs e)
         {
   
+
         }
     }
 

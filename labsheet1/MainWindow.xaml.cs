@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using static System.Console;
 
 namespace labsheet1
 {
@@ -20,7 +22,7 @@ namespace labsheet1
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Band> Bands= new List<Band>();
+        List<Band> Bands = new List<Band>();
         List<album> Albums = new List<album>();
         //List<Band> filteredBands = new List<Band>();
         public MainWindow()
@@ -84,37 +86,42 @@ namespace labsheet1
             album album1 = new album()
             {
                 AlbumName = "abcd",
-                //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             album album2 = new album()
             {
                 AlbumName = "tyui",
                 //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             album album3 = new album()
             {
                 AlbumName = "aeiou",
                 //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             album album4 = new album()
             {
                 AlbumName = "qwerty",
                 //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             album album5 = new album()
             {
                 AlbumName = "asdf",
                 //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             album album6 = new album()
             {
                 AlbumName = "awsd",
                 //Released = rng.Next(1960,2020),
+                Released = RandomDate(),
                 Sales = rng.Next(10, 30)
             };
             Albums.Add(album1);
@@ -126,10 +133,18 @@ namespace labsheet1
 
             RefreshList();
             lbxBand.ItemsSource = Bands;
-            cbxGenre.ItemsSource = new string[] {"All", "Indie","Pop","Rock"};
+            cbxGenre.ItemsSource = new string[] { "All", "Indie", "Pop", "Rock" };
 
 
-            
+
+        }
+
+        private Random rngdate = new Random();
+        DateTime RandomDate()
+        {
+            DateTime startdate = new DateTime(1960, 1, 1);
+            int daterange = (DateTime.Today - startdate).Days;
+            return startdate.AddDays(rngdate.Next(daterange));
         }
         private void RefreshList()
         {
@@ -140,13 +155,13 @@ namespace labsheet1
             lbxAlbums.ItemsSource = Albums;
 
             Bands.Sort();
- 
-            
+
+
         }//end of RefreshList
 
         private void CbxGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //dont undertand how to filter the bands from a combobox.
+            //i dont undertand how to filter the bands from a combobox.
 
             //string[] filter = Bands.ToArray();
             Band[] filteredBands = new Band[2];
@@ -155,26 +170,50 @@ namespace labsheet1
             {
                 lbxBand.ItemsSource = Bands;
             }
-            else if(cbxGenre.SelectedItem == "All")
+            else if (cbxGenre.SelectedItem == "All")
             {
                 Bands.ToArray();
                 lbxBand.ItemsSource = Bands;
             }
             else if (cbxGenre.SelectedItem == "Indie")
             {
-                
+
                 foreach (Band filtered in Bands)
                 {
                     Bands.ToArray();
-                    
+                    //if(filtered == IndieBand)
                     filteredBands[counter] = filtered;
                     counter++;
                 }
-                
+
+            }
+            else if (cbxGenre.SelectedItem == "Rock")
+            {
+
+                foreach (Band filtered in Bands)
+                {
+                    Bands.ToArray();
+                    //if(filtered == RockBand)
+                    filteredBands[counter] = filtered;
+                    counter++;
+                }
+
+            }
+            else if (cbxGenre.SelectedItem == "Pop")
+            {
+
+                foreach (Band filtered in Bands)
+                {
+                    Bands.ToArray();
+                    //if(filtered == PopBand)
+                    filteredBands[counter] = filtered;
+                    counter++;
+                }
+
             }
             lbxBand.ItemsSource = filteredBands;
 
-            
+
             /*else if (cbxGenre.SelectedItem == "Indie Band")
             {
                 foreach (Band currentBand in filteredBands)
@@ -200,9 +239,35 @@ namespace labsheet1
 
         private void btnSAVE_Click(object sender, RoutedEventArgs e)
         {
-  
+            /*used the link below to help [27/01/2020]
+            https://stackoverflow.com/questions/15300572/saving-lists-to-txt-file
+            */
+            using (TextWriter text = new StreamWriter("Bands.txt"))
+            {
+                foreach (Band input in Bands)
+                {
+                    text.WriteLine(input);
 
+                }
+            }
+
+            /* string linein;
+             int element = 0;
+
+             FileStream fs3 = new FileStream("Bands.txt", FileMode.Open, FileAccess.Write);
+             StreamReader inputStream = new StreamReader(fs3);
+
+             linein = inputStream.ReadLine();
+             WriteLine();
+             while (linein != null)
+             {
+                 linein = inputStream.ReadLine();
+
+                 element++;
+             }
+             inputStream.Close();
+         }*/
         }
-    }
 
+    }
 }

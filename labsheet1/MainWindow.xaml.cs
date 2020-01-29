@@ -24,7 +24,9 @@ namespace labsheet1
     {
         List<Band> Bands = new List<Band>();
         List<album> Albums = new List<album>();
-        //List<Band> filteredBands = new List<Band>();
+        List<Band> filteredBands = new List<Band>();
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -164,8 +166,11 @@ namespace labsheet1
             //i dont undertand how to filter the bands from a combobox.
 
             //string[] filter = Bands.ToArray();
-            Band[] filteredBands = new Band[2];
-            int counter = 0;
+            //Band[] filteredBands = new Band[2];
+
+            filteredBands.Clear();
+
+         
             if (cbxGenre.SelectedItem != null)
             {
                 lbxBand.ItemsSource = Bands;
